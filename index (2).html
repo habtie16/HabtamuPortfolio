@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habtamu | Personal Portfolio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            background: linear-gradient(135deg, #1a252f, #2c3e50);
+            color: #fff;
+            padding: 3.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+        }
+
+        /* ---------- Navigation ---------- */
+        nav {
+            background: #2c3e50;
+            text-align: center;
+            padding: 0.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            padding: 6px 2px;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        nav a:hover {
+            color: #5dade2;
+            border-bottom-color: #5dade2;
+        }
+
+        /* ---------- Layout ---------- */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* ---------- About + profile photo ---------- */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3498db;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            flex-shrink: 0;
+        }
+
+        /* ---------- Skills ---------- */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+        .skills-list li {
+            background: #eef2f7;
+            color: #2c3e50;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .skills-list li:hover {
+            background: #2c3e50;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Projects ---------- */
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #3498db;
+            padding: 1rem 1.2rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        .project-card:hover {
+            background: #f8fbff;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+        }
+
+        /* ---------- Contact buttons ---------- */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+        .contact-btn {
+            background: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 22px;
+            border-radius: 25px;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .contact-btn:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(52, 152, 219, 0.35);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Mobile ---------- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            nav a { margin: 0 8px; }
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Habtamu</h1>
+        <p>Developer &amp; System Designer</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="profile.jpg" alt="Photo of Habtamu" class="profile-img">
+                <p>Welcome to my personal portfolio! I focus on building efficient applications, database systems, and practical software solutions.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Java</li>
+                <li>C++</li>
+                <li>SQL / MySQL</li>
+                <li>HTML / CSS</li>
+                <li>Database Design</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>Personal responsive portfolio website built with HTML and CSS, hosted on GitHub Pages.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out via GitHub or email!</p>
+            <div class="contact-links">
+                <a class="contact-btn" href="mailto:hhhabtiehhabtie@gmail.com">&#9993; Email Me</a>
+                <a class="contact-btn" href="https://github.com/habtie16" target="_blank" rel="noopener">&#128187; GitHub</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Habtamu. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
