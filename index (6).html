@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habtamu | Personal Portfolio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            background: linear-gradient(135deg, #1a252f, #2c3e50);
+            color: #fff;
+            padding: 3.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+        }
+
+        /* ---------- Navigation ---------- */
+        nav {
+            background: #2c3e50;
+            text-align: center;
+            padding: 0.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            padding: 6px 2px;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        nav a:hover {
+            color: #5dade2;
+            border-bottom-color: #5dade2;
+        }
+
+        /* ---------- Layout ---------- */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* ---------- About + profile photo ---------- */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3498db;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            flex-shrink: 0;
+        }
+
+        /* ---------- Skills ---------- */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+        .skills-list li {
+            background: #eef2f7;
+            color: #2c3e50;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .skills-list li:hover {
+            background: #2c3e50;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Detailed skills ---------- */
+        .section-intro { margin-bottom: 1rem; color: #555; }
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .skill-card {
+            background: #f4f8fc;
+            border-top: 4px solid #3498db;
+            border-radius: 8px;
+            padding: 1rem 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(52, 152, 219, 0.25);
+        }
+        .skill-card h3 { color: #2c3e50; margin-bottom: 0.4rem; }
+        .skill-card p { font-size: 0.95rem; color: #555; }
+
+        /* ---------- Detailed project ---------- */
+        .project-card h3 { font-size: 1.3rem; color: #2c3e50; margin-bottom: 0.4rem; }
+        .project-card h4 {
+            margin: 1.1rem 0 0.4rem;
+            color: #3498db;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .project-list { padding-left: 1.2rem; }
+        .project-list li { margin-bottom: 0.3rem; }
+        .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag-row span {
+            background: #eef2f7;
+            color: #2c3e50;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .project-links { margin-top: 1.2rem; }
+        .project-links .contact-btn { display: inline-block; }
+
+        /* ---------- Projects ---------- */
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #3498db;
+            padding: 1rem 1.2rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        .project-card:hover {
+            background: #f8fbff;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+        }
+
+        /* ---------- Contact form ---------- */
+        #contact {
+            background: #0a1120;
+            color: #cfe3ff;
+        }
+        #contact h2 {
+            color: #0aa0ff;
+            border-bottom-color: #0aa0ff;
+        }
+        .contact-intro { margin-bottom: 1rem; }
+        .sent-note {
+            background: #0f3d2e;
+            color: #b9f6d8;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .contact-form label {
+            display: block;
+            margin: 1rem 0 0.4rem;
+            font-weight: 600;
+            color: #9ec1f2;
+            font-size: 0.95rem;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            background: #132a4f;
+            color: #fff;
+            border: 1px solid #1f6fd6;
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder { color: #8fa4c4; }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #0aa0ff;
+            box-shadow: 0 0 0 3px rgba(10, 160, 255, 0.25);
+        }
+        .contact-form button {
+            width: 100%;
+            margin-top: 1.2rem;
+            background: #0a8cff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .contact-form button:hover {
+            background: #0a74d6;
+            transform: translateY(-2px);
+        }
+        #contact .contact-btn { background: #132a4f; }
+        #contact .contact-btn:hover { background: #0a8cff; }
+
+        /* ---------- Contact buttons ---------- */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+        .contact-btn {
+            background: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 22px;
+            border-radius: 25px;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .contact-btn:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(52, 152, 219, 0.35);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Mobile ---------- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            nav a { margin: 0 8px; }
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Habtamu</h1>
+        <p>Developer &amp; System Designer</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="profile.jpg" alt="Photo of Habtamu" class="profile-img">
+                <p>Welcome to my personal portfolio! I focus on building efficient applications, database systems, and practical software solutions.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <p class="section-intro">The languages and tools I use to design and build software.</p>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <h3>Java</h3>
+                    <p>Object-oriented programming: classes, inheritance, and building structured, reusable applications.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>C++</h3>
+                    <p>Problem solving and logic building, working with data structures and efficient, fast code.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>SQL / MySQL</h3>
+                    <p>Creating tables, writing queries, joins, and managing data stored in relational databases.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>HTML / CSS</h3>
+                    <p>Building clean, responsive web pages that look good on phones, tablets, and computers.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Database Design</h3>
+                    <p>Planning how data is organised: tables, keys, and relationships, so systems stay accurate and easy to maintain.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>A personal website that introduces who I am, shows my skills, and lets visitors contact me. I designed, wrote, and published it myself.</p>
+
+                <h4>What it includes</h4>
+                <ul class="project-list">
+                    <li>About section with my photo and a short introduction</li>
+                    <li>Skills section explaining each technology I use</li>
+                    <li>Contact form that sends messages straight to my email</li>
+                    <li>Responsive design that works on phones, tablets, and computers</li>
+                    <li>Smooth scrolling and a menu that stays at the top</li>
+                </ul>
+
+                <h4>Technologies used</h4>
+                <div class="tag-row">
+                    <span>HTML</span><span>CSS</span><span>GitHub</span><span>GitHub Pages</span>
+                </div>
+
+                <h4>What I learned</h4>
+                <p>Structuring a web page, styling it with CSS, making a layout responsive, and publishing a website online using GitHub Pages.</p>
+
+                <div class="project-links">
+                    <a class="contact-btn" href="https://github.com/habtie16/HabtamuPortfolio" target="_blank" rel="noopener">View Code on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p class="contact-intro">Feel free to reach out. Send me a message below!</p>
+            <p id="sent-note" class="sent-note" hidden>Thank you! Your message was sent. I will reply soon.</p>
+            <form class="contact-form" action="https://formsubmit.co/hhhabtiehhabtie@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New message from my portfolio website">
+                <input type="hidden" name="_next" value="https://habtie16.github.io/HabtamuPortfolio/?sent=1#contact">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-links">
+                <a class="contact-btn" href="mailto:hhhabtiehhabtie@gmail.com">&#9993; Email Me</a>
+                <a class="contact-btn" href="https://github.com/habtie16" target="_blank" rel="noopener">&#128187; GitHub</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Habtamu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        if (window.location.search.indexOf("sent=1") !== -1) {
+            document.getElementById("sent-note").hidden = false;
+        }
+    </script>
+
+</body>
+</html>
